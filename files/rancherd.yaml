@@ -1,0 +1,17 @@
+#cloud-config
+rancherd:
+  role: server
+  token: somethingrandom
+  discovery:
+    params:
+      provider: digitalocean
+      region: nyc1
+      tag_name: rancherd
+      api_token: REPLACE_WITH_DIGITALOCEAN_TOKEN_READONLY
+    expectedServers: 3
+    serverCacheDuration: 1m
+  kubernetesVersion: v1.20.5-k3s1
+  rancherValues:
+    features: multi-cluster-management=true
+runcmd:
+  - curl -fL https://raw.githubusercontent.com/rancher/rancherd/master/install.sh | sh -

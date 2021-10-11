@@ -1,0 +1,7 @@
+#cloud-config
+rancherd:
+  role: cluster-init
+  #rancherValues:
+  #  features: multi-cluster-management=true
+runcmd:
+  - curl -fL https://raw.githubusercontent.com/rancher/rancherd/master/install.sh | sh -
